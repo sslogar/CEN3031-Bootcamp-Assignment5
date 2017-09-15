@@ -94,7 +94,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         Implement the remove function. If the removal is successful, navigate back to 'listing.list'. Otherwise,
         display the error.
        */
-       Listings.remove(listing)
+       Listings.delete(listing)
                .then(function(response) {
                  $state.go('listings.list', { successMessage: 'Listing successfully updated' });
                }, function(error) {
