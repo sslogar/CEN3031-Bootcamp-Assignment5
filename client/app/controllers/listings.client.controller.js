@@ -84,9 +84,9 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
          code: $scope.code,
          address: $scope.address
        }; // this changed
-
+       var id = $stateParams.listingId;
        if (isValid) {
-         Listings.update(listing)
+         Listings.update(id)
                  .then(function(response) {
                    $state.go('listings.list', { successMessage: 'Listing successfully updated' });
                  }, function(error) {
@@ -98,9 +98,10 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
     $scope.remove = function() {
       /*
         Implement the remove function. If the removal is successful, navigate back to 'listing.list'. Otherwise,
-        display the error.
+        display the error
        */
-       Listings.delete(listing)
+       var id = $stateParams.listingId;
+       Listings.delete(id)
                .then(function(response) {
                  $state.go('listings.list', { successMessage: 'Listing successfully updated' });
                }, function(error) {
