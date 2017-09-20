@@ -10,5 +10,13 @@
   -->
 
 <div id="map-canvas" ng-controller="listings.client.controller">
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+        <ui-gmap-markers models="listing in listings" coords="'self'" icon="'icon'">
+          <ui-gmap-windows show="show">
+                <div ng-non-bindable>{{listing.name}}</div>
+                <div ng-non-bindable>{{listing.code}}</div>
+                <div ng-non-bindable>{{listing.address}}</div>
+            </ui-gmap-windows>
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
 </div>

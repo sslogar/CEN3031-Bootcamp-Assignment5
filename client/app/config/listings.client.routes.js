@@ -33,6 +33,7 @@ angular.module('listings').config(['$stateProvider', '$urlRouterProvider',
        .state('listings.map', {
          url: '/map/:listingId', //this line changed
          templateUrl: 'app/views/map-listings.client.view.html',
+         template: '<ui-view/>'
        })
   }
 ]);
